@@ -1,0 +1,10 @@
+As we can see, in the normal and worst cases the time complexity of the algortihm increases as 
+the value of k increases. (see in RANDOM_CASE.png and WORST_CASE.png)
+
+However, for the best, that is when the arrays are already sorted (best case)
+, we can observe that the time complexity of the algorithm decreases when k increases, 
+suggesting that the faster we start applying insertion sort the better.(see in BEST_CASE.png)
+
+Consequently, depending on how we know that our arrays should look like before applying the
+combination of different sorting methods, we should pick the value for k to be either as big as 
+the length of the array (best case), or as small as 1 (average and worst cases).

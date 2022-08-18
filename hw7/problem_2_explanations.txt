@@ -1,0 +1,4 @@
+As we can observe in the graph (see picture "problem_2_time_complexities.png"), the best case running time 
+for this particular method of partitioning is when the list is randomly generated. The worst cases are 
+when the list is either sorted from before, either sorted descending, since the pivots will always be placed
+at the end of beginning of the list, causing the partition to not be efficient. 

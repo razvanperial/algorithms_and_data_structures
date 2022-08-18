@@ -1,0 +1,13 @@
+Average time for lomoto:  0.04660269878550009
+Average time for hoare:  0.002827021923999912
+Average time for mot:  0.003446930442500021
+
+This is one of the results I obtained in the terminal after one compilatio0n of the 
+program. We can observe from this that the hoare partition is themost efficient,
+followed by the median of three method implemented with hoare partition and followed lastly by
+lomoto partition. 
+
+Intuitively, the median of three method should have had the best result, but since the input of the array 
+is not that big(1000 elements), the swapping and comparing of the three elemens will take a large amount
+of time relative to the rest of the partitioning. Thus, we can assume that if the input would have been
+bigger, the results would have looked like: mot < hoare < lomoto.

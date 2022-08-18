@@ -1,0 +1,257 @@
++-------------+----------------------------------+-------------------------------------+---------------------------------------+-----------------------------------+
+| Values of N | Time Complexity for Naive Search | Time Complexity for BottomUp Search | Time Complexity for ClosedForm Search | Time Complexity for Matrix Search |
++-------------+----------------------------------+-------------------------------------+---------------------------------------+-----------------------------------+
+|      14     |      0.00010605299999988382      |        3.179000000130827e-06        |         8.801999999974441e-06         |       1.4394000000139684e-05      |
+|      15     |      0.0001613400000000098       |        2.1490000001733733e-06       |         2.274999999940519e-06         |       1.2681999999930582e-05      |
+|      16     |      0.00025174599999999714      |        2.0179999999925258e-06       |         1.5890000000240434e-06        |       1.345100000005317e-05       |
+|      17     |      0.0004066859999998229       |        1.9789999998742758e-06       |         1.490000000048397e-06         |       1.3692000000009585e-05      |
+|      18     |      0.0006703710000000029       |        2.183999999960662e-06        |         2.0599999999149077e-06        |       1.5413000000075172e-05      |
+|      19     |      0.0010690470000001007       |        2.068999999993437e-06        |         1.7290000000613759e-06        |       1.4924999999887945e-05      |
+|      20     |      0.0016762869999999985       |        2.065000000106565e-06        |         1.5620000000104994e-06        |       1.529199999983355e-05       |
+|      21     |       0.002710752999999899       |        2.218000000109299e-06        |         1.7650000001534494e-06        |       1.621100000015474e-05       |
+|      22     |       0.004277019999999965       |        2.089999999954628e-06        |         1.9009999998598204e-06        |       1.6167999999927574e-05      |
+|      23     |       0.006727024999999998       |        2.060999999997648e-06        |         1.5909999999674795e-06        |       1.647800000004196e-05       |
+|      24     |       0.010808895999999901       |        1.9419999999215065e-06       |         1.450999999930147e-06         |       1.669199999998483e-05       |
+|      25     |       0.017182412999999785       |        2.067000000050001e-06        |         1.4649999999782892e-06        |       1.748499999987274e-05       |
+|      27     |       0.043267595999999964       |        2.0809999998760986e-06       |         1.2670000000269965e-06        |       1.7831999999939896e-05      |
+|      30     |       0.18587255800000002        |        7.619999999874949e-06        |         9.565999999905372e-06         |       2.7551999999930743e-05      |
+|      34     |        1.2639860969999999        |        7.427999999976009e-06        |         9.155999999954645e-06         |       2.8316000000305763e-05      |
+|      39     |             Too Long             |         2.79900000021982e-06        |         1.548999999823053e-06         |       2.6350000000174845e-05      |
+|      45     |             Too Long             |        3.1800000002135675e-06       |         1.3870000001858784e-06        |       3.0331000000050068e-05      |
+|      52     |             Too Long             |        3.0989999997288464e-06       |         1.1859999999863646e-06        |       3.515999999992303e-05       |
+|      60     |             Too Long             |        3.3460000001817036e-06       |         1.1139999998022176e-06        |       4.0341000000054805e-05      |
+|      69     |             Too Long             |         3.4919999998273e-06         |         1.2300000000742273e-06        |       4.718699999983755e-05       |
+|      79     |             Too Long             |        3.845999999807503e-06        |         1.1829999997381435e-06        |       5.414500000000544e-05       |
+|      90     |             Too Long             |        4.446000000157824e-06        |         1.2790000001317026e-06        |       6.244499999974451e-05       |
+|     102     |             Too Long             |        4.940999999814011e-06        |         1.7900000002235572e-06        |       7.130799999988113e-05       |
+|     115     |             Too Long             |        5.4099999999834836e-06       |         1.1980000000910707e-06        |       8.010400000024731e-05       |
+|     129     |             Too Long             |         5.78899999981175e-06        |         1.3129999998362507e-06        |       9.109700000031751e-05       |
+|     144     |             Too Long             |         6.56100000018256e-06        |         1.3120000001975995e-06        |       0.00010222500000001133      |
+|     160     |             Too Long             |         7.16000000000605e-06        |         1.1830000001822327e-06        |       0.00011388699999992369      |
+|     177     |             Too Long             |        7.808000000331106e-06        |         1.2570000000877712e-06        |       0.00012688500000024305      |
+|     195     |             Too Long             |        8.427000000033047e-06        |         1.2609999999746435e-06        |       0.0001786140000001879       |
+|     214     |             Too Long             |        9.272999999865306e-06        |         1.2879999999881875e-06        |       0.00015402100000017072      |
+|     234     |             Too Long             |        1.0257000000013505e-05       |         1.2909999997923194e-06        |       0.0001703319999997177       |
+|     255     |             Too Long             |        1.1025999999692004e-05       |         1.2919999998750598e-06        |       0.00018439599999986456      |
+|     277     |             Too Long             |        1.2498000000249476e-05       |          1.38899999990727e-06         |       0.00020256600000001512      |
+|     300     |             Too Long             |        1.3034999999828045e-05       |         1.2879999999881875e-06        |       0.0002549890000000943       |
+|     324     |             Too Long             |        2.0162000000212288e-05       |         1.8270000001763265e-06        |       0.00023939200000011596      |
+|     349     |             Too Long             |        1.5326000000204232e-05       |         1.3110000001148592e-06        |       0.0002581089999997843       |
+|     375     |             Too Long             |        1.6369000000349132e-05       |         1.2429999998175845e-06        |       0.0002793450000000419       |
+|     402     |             Too Long             |        1.7801000000261524e-05       |         1.2910000002364086e-06        |       0.00030396000000010304      |
+|     430     |             Too Long             |        1.9137999999863098e-05       |         1.4419999998516175e-06        |       0.00032323500000019934      |
+|     459     |             Too Long             |        2.0366000000215934e-05       |         1.3080000003107273e-06        |       0.0003458620000000856       |
+|     489     |             Too Long             |        2.153699999984937e-05        |         1.2950000001232809e-06        |       0.0003700100000001427       |
+|     520     |             Too Long             |        2.298300000003195e-05        |         1.2950000001232809e-06        |       0.00039306300000019334      |
+|     552     |             Too Long             |        2.460700000028737e-05        |         1.2150000001653893e-06        |       0.0004550440000001821       |
+|     585     |             Too Long             |        2.7020000000099742e-05       |         1.3810000001335254e-06        |       0.0004469770000001816       |
+|     619     |             Too Long             |        2.8035000000148358e-05       |         1.5009999998483181e-06        |       0.0004753929999998796       |
+|     654     |             Too Long             |        3.0268999999805146e-05       |         1.328999999827829e-06         |        0.000505074999999966       |
+|     690     |             Too Long             |        3.137999999980323e-05        |         1.376999999802564e-06         |       0.0005361500000002906       |
+|     727     |             Too Long             |        3.353399999994622e-05        |         1.3359999999629224e-06        |       0.0005669240000001352       |
+|     765     |             Too Long             |        3.5963000000194256e-05       |         1.3219999996927356e-06        |       0.0006016799999999378       |
+|     804     |             Too Long             |        3.7964999999751115e-05       |         1.3579999995627645e-06        |       0.0007300479999998721       |
+|     844     |             Too Long             |        4.045100000027446e-05        |         1.6350000002773868e-06        |       0.0006711820000000479       |
+|     885     |             Too Long             |        4.2676000000074765e-05       |         1.4030000001774567e-06        |        0.000709191000000331       |
+|     927     |             Too Long             |        4.4238999999723916e-05       |         1.3869999997417892e-06        |       0.0007487269999999491       |
+|     970     |             Too Long             |        4.656900000021835e-05        |         1.419000000169035e-06         |       0.0007832140000001431       |
+|     1014    |             Too Long             |        5.0201999999721636e-05       |      Will throw math range error      |       0.0008249190000002571       |
+|     1059    |             Too Long             |        5.251000000017214e-05        |      Will throw math range error      |       0.0008579550000002989       |
+|     1105    |             Too Long             |        5.499799999997279e-05        |      Will throw math range error      |       0.0008999709999999439       |
+|     1152    |             Too Long             |        5.730800000014469e-05        |      Will throw math range error      |       0.0009412619999999983       |
+|     1200    |             Too Long             |         6.00500000000892e-05        |      Will throw math range error      |       0.0009882179999998186       |
+|     1249    |             Too Long             |        6.317500000019294e-05        |      Will throw math range error      |       0.0010298259999999004       |
+|     1299    |             Too Long             |        6.634399999994045e-05        |      Will throw math range error      |       0.0010789200000003163       |
+|     1350    |             Too Long             |        6.904399999996258e-05        |      Will throw math range error      |        0.001123727999999602       |
+|     1402    |             Too Long             |         7.18310000000777e-05        |      Will throw math range error      |       0.0011763770000001728       |
+|     1455    |             Too Long             |         7.55969999999273e-05        |      Will throw math range error      |       0.0012252910000003503       |
+|     1509    |             Too Long             |        7.913799999981208e-05        |      Will throw math range error      |        0.001275898000000275       |
+|     1564    |             Too Long             |        8.258200000010874e-05        |      Will throw math range error      |       0.0013284550000003392       |
+|     1620    |             Too Long             |        8.713999999976352e-05        |      Will throw math range error      |       0.0013849310000000337       |
+|     1677    |             Too Long             |        9.075999999996753e-05        |      Will throw math range error      |       0.0014421480000001985       |
+|     1735    |             Too Long             |        9.368299999978902e-05        |      Will throw math range error      |       0.0014977069999999593       |
+|     1794    |             Too Long             |         9.82060000001006e-05        |      Will throw math range error      |       0.0015588649999997983       |
+|     1854    |             Too Long             |        0.00010213299999994874       |      Will throw math range error      |       0.0016198410000001218       |
+|     1915    |             Too Long             |        0.0001085550000001767        |      Will throw math range error      |        0.001684461999999609       |
+|     1977    |             Too Long             |        0.00011239899999981873       |      Will throw math range error      |       0.0018018730000002314       |
+|     2040    |             Too Long             |        0.00011668399999997803       |      Will throw math range error      |        0.001823608000000032       |
+|     2104    |             Too Long             |        0.00012096800000005459       |      Will throw math range error      |       0.0018961559999999267       |
+|     2169    |             Too Long             |        0.00012825800000015875       |      Will throw math range error      |       0.0019653650000002187       |
+|     2235    |             Too Long             |        0.00013190100000004534       |      Will throw math range error      |       0.0020918670000003026       |
+|     2302    |             Too Long             |        0.00013772200000028434       |      Will throw math range error      |        0.002105945999999914       |
+|     2370    |             Too Long             |        0.0001405239999998642        |      Will throw math range error      |       0.0021820830000001123       |
+|     2439    |             Too Long             |        0.00014690000000028292       |      Will throw math range error      |       0.0023055319999998325       |
+|     2509    |             Too Long             |        0.0001527299999999343        |      Will throw math range error      |       0.0023315809999999715       |
+|     2580    |             Too Long             |        0.00015841100000013597       |      Will throw math range error      |       0.0024180720000002154       |
+|     2652    |             Too Long             |        0.00016376400000028823       |      Will throw math range error      |        0.002499589999999774       |
+|     2725    |             Too Long             |        0.0001694539999999023        |      Will throw math range error      |        0.002580966000000018       |
+|     2799    |             Too Long             |        0.00017499799999987076       |      Will throw math range error      |       0.0026630280000001783       |
+|     2874    |             Too Long             |        0.0001839440000002135        |      Will throw math range error      |        0.002752426000000252       |
+|     2950    |             Too Long             |        0.00018772199999972372       |      Will throw math range error      |       0.0028351789999998545       |
+|     3027    |             Too Long             |        0.00019632099999977726       |      Will throw math range error      |        0.002933440000000065       |
+|     3105    |             Too Long             |        0.00020082700000001452       |      Will throw math range error      |       0.0030282000000001474       |
+|     3184    |             Too Long             |        0.00020871300000013804       |      Will throw math range error      |        0.00317298300000024        |
+|     3264    |             Too Long             |        0.00021431900000035142       |      Will throw math range error      |       0.0032248039999998035       |
+|     3345    |             Too Long             |        0.00022091000000035166       |      Will throw math range error      |        0.003321355999999831       |
+|     3427    |             Too Long             |        0.00022726000000039548       |      Will throw math range error      |        0.003421399000000047       |
+|     3510    |             Too Long             |        0.00023736099999993598       |      Will throw math range error      |        0.003528687000000197       |
+|     3594    |             Too Long             |        0.0002452139999999936        |      Will throw math range error      |       0.0036381930000000118       |
+|     3679    |             Too Long             |        0.0002484529999997598        |      Will throw math range error      |       0.0037438119999997355       |
+|     3765    |             Too Long             |        0.0002580939999998755        |      Will throw math range error      |        0.003849592000000346       |
+|     3852    |             Too Long             |        0.00026714899999991104       |      Will throw math range error      |        0.003976084000000046       |
+|     3940    |             Too Long             |        0.0002724069999997525        |      Will throw math range error      |        0.004133874000000315       |
+|     4029    |             Too Long             |        0.0002819640000000234        |      Will throw math range error      |        0.004208122000000092       |
+|     4119    |             Too Long             |        0.00029098499999991034       |      Will throw math range error      |       0.0043226100000000045       |
+|     4210    |             Too Long             |        0.00030258300000030047       |      Will throw math range error      |        0.004450394000000024       |
+|     4302    |             Too Long             |        0.0003090289999998497        |      Will throw math range error      |        0.004579558999999733       |
+|     4395    |             Too Long             |        0.00031968700000017947       |      Will throw math range error      |        0.004712910999999931       |
+|     4489    |             Too Long             |        0.00033025699999988944       |      Will throw math range error      |        0.004840650999999863       |
+|     4584    |             Too Long             |        0.0003381490000000653        |      Will throw math range error      |       0.0049811619999999834       |
+|     4680    |             Too Long             |        0.0003500079999998462        |      Will throw math range error      |        0.005165384000000106       |
+|     4777    |             Too Long             |         0.000359790000000082        |      Will throw math range error      |       0.0053029680000000745       |
+|     4875    |             Too Long             |        0.00037357400000015417       |      Will throw math range error      |        0.005407860000000042       |
+|     4974    |             Too Long             |        0.0004247980000000595        |      Will throw math range error      |        0.005561717999999605       |
+|     5074    |             Too Long             |        0.0003939680000000223        |      Will throw math range error      |        0.005715681999999944       |
+|     5175    |             Too Long             |        0.0004100860000000317        |      Will throw math range error      |        0.005923918999999778       |
+|     5277    |             Too Long             |        0.00042267699999998243       |      Will throw math range error      |        0.006037174000000256       |
+|     5380    |             Too Long             |        0.00043363999999979086       |      Will throw math range error      |       0.0062051649999999015       |
+|     5484    |             Too Long             |         0.000447982000000291        |      Will throw math range error      |        0.006391889999999734       |
+|     5589    |             Too Long             |        0.0004944059999996142        |      Will throw math range error      |        0.006668894000000147       |
+|     5695    |             Too Long             |        0.0004775119999997912        |      Will throw math range error      |        0.006813573000000073       |
+|     5802    |             Too Long             |        0.0004945910000002662        |      Will throw math range error      |        0.007033611999999856       |
+|     5910    |             Too Long             |        0.0005245990000002365        |      Will throw math range error      |        0.007205445999999949       |
+|     6019    |             Too Long             |         0.000568463000000019        |      Will throw math range error      |        0.007381039999999839       |
+|     6129    |             Too Long             |        0.0005767620000001195        |      Will throw math range error      |        0.00759221099999996        |
+|     6240    |             Too Long             |        0.0005950630000000068        |      Will throw math range error      |        0.007774689000000112       |
+|     6352    |             Too Long             |        0.0005668279999997416        |      Will throw math range error      |        0.007960970999999706       |
+|     6465    |             Too Long             |        0.0005860040000000843        |      Will throw math range error      |        0.008217672000000231       |
+|     6579    |             Too Long             |        0.0006025619999996401        |      Will throw math range error      |        0.00839024499999974        |
+|     6694    |             Too Long             |        0.0006216690000000469        |      Will throw math range error      |        0.008617517000000241       |
+|     6810    |             Too Long             |        0.0006771280000004154        |      Will throw math range error      |        0.008867487000000285       |
+|     6927    |             Too Long             |        0.0006578619999997315        |      Will throw math range error      |        0.009114816999999942       |
+|     7045    |             Too Long             |        0.0006691389999997632        |      Will throw math range error      |        0.009307444999999692       |
+|     7164    |             Too Long             |        0.0006898539999999898        |      Will throw math range error      |        0.009550379999999858       |
+|     7284    |             Too Long             |        0.0007536780000001464        |      Will throw math range error      |        0.009845283000000205       |
+|     7405    |             Too Long             |        0.0007334509999998851        |      Will throw math range error      |        0.010071825999999895       |
+|     7527    |             Too Long             |        0.0007470290000002322        |      Will throw math range error      |        0.010344347000000198       |
+|     7650    |             Too Long             |        0.0008095169999999818        |      Will throw math range error      |        0.01053216300000015        |
+|     7774    |             Too Long             |        0.0008238870000001342        |      Will throw math range error      |        0.010868633999999933       |
+|     7899    |             Too Long             |        0.0008090300000000994        |      Will throw math range error      |        0.011103746000000303       |
+|     8025    |             Too Long             |        0.0008255909999999034        |      Will throw math range error      |        0.011402578000000219       |
+|     8152    |             Too Long             |        0.0008530559999999632        |      Will throw math range error      |        0.011584147000000211       |
+|     8280    |             Too Long             |        0.0008742180000003152        |      Will throw math range error      |        0.011934163000000275       |
+|     8409    |             Too Long             |         0.000890442999999852        |      Will throw math range error      |        0.012159382000000107       |
+|     8539    |             Too Long             |        0.0009163349999998793        |      Will throw math range error      |        0.012460439999999906       |
+|     8670    |             Too Long             |        0.0009336099999996961        |      Will throw math range error      |        0.012699034999999803       |
+|     8802    |             Too Long             |        0.0009642639999998259        |      Will throw math range error      |        0.013016246999999925       |
+|     8935    |             Too Long             |        0.0009868399999999333        |      Will throw math range error      |        0.013887191999999882       |
+|     9069    |             Too Long             |        0.0017811599999997263        |      Will throw math range error      |        0.014137735000000262       |
+|     9204    |             Too Long             |        0.0010334929999999964        |      Will throw math range error      |        0.013945625999999933       |
+|     9340    |             Too Long             |        0.0010548019999996328        |      Will throw math range error      |        0.014309590999999955       |
+|     9477    |             Too Long             |         0.001125292000000222        |      Will throw math range error      |        0.014656854000000052       |
+|     9615    |             Too Long             |        0.0011170799999997705        |      Will throw math range error      |        0.015140167000000204       |
+|     9754    |             Too Long             |        0.0011492710000000628        |      Will throw math range error      |        0.015266968999999797       |
+|     9894    |             Too Long             |        0.0011699380000003146        |      Will throw math range error      |        0.015530610999999972       |
+|    10035    |             Too Long             |        0.0011993280000002216        |      Will throw math range error      |        0.015924455000000393       |
+|    10177    |             Too Long             |        0.0012154940000002057        |      Will throw math range error      |        0.016264887000000172       |
+|    10320    |             Too Long             |        0.0012605520000001924        |      Will throw math range error      |        0.016632700999999805       |
+|    10464    |             Too Long             |        0.0012734480000000659        |      Will throw math range error      |        0.016885838999999958       |
+|    10609    |             Too Long             |        0.0013131090000002565        |      Will throw math range error      |        0.017328539999999837       |
+|    10755    |             Too Long             |        0.0013344740000000854        |      Will throw math range error      |        0.017718193999999965       |
+|    10902    |             Too Long             |         0.001362619999999648        |      Will throw math range error      |        0.018078231000000056       |
+|    11050    |             Too Long             |         0.001395833000000124        |      Will throw math range error      |        0.018606795000000176       |
+|    11199    |             Too Long             |        0.0014423669999996669        |      Will throw math range error      |        0.018896992999999807       |
+|    11349    |             Too Long             |         0.001485451000000193        |      Will throw math range error      |        0.01964213800000003        |
+|    11500    |             Too Long             |        0.0016033969999997844        |      Will throw math range error      |        0.019955616000000287       |
+|    11652    |             Too Long             |        0.0017150390000000293        |      Will throw math range error      |        0.02135462900000018        |
+|    11805    |             Too Long             |        0.0016449430000000653        |      Will throw math range error      |        0.02287316500000003        |
+|    11959    |             Too Long             |        0.0018778580000002876        |      Will throw math range error      |        0.023027314000000132       |
+|    12114    |             Too Long             |         0.001773795000000078        |      Will throw math range error      |        0.02389590400000019        |
+|    12270    |             Too Long             |         0.001864121999999746        |      Will throw math range error      |        0.023043171999999945       |
+|    12427    |             Too Long             |        0.0017919219999997793        |      Will throw math range error      |        0.022764523000000203       |
+|    12585    |             Too Long             |         0.001800492000000098        |      Will throw math range error      |        0.02312283000000015        |
+|    12744    |             Too Long             |        0.0018374770000000318        |      Will throw math range error      |        0.023741153999999653       |
+|    12904    |             Too Long             |        0.0018955570000001032        |      Will throw math range error      |        0.02429456200000013        |
+|    13065    |             Too Long             |        0.0019202279999999128        |      Will throw math range error      |        0.024703066999999912       |
+|    13227    |             Too Long             |         0.001976835999999871        |      Will throw math range error      |        0.025401550999999856       |
+|    13390    |             Too Long             |         0.002016762999999866        |      Will throw math range error      |        0.02616040900000005        |
+|    13554    |             Too Long             |         0.002112961999999996        |      Will throw math range error      |        0.027393810000000407       |
+|    13719    |             Too Long             |        0.0021245290000000416        |      Will throw math range error      |        0.02798112400000008        |
+|    13885    |             Too Long             |        0.0022551059999997847        |      Will throw math range error      |        0.02769281300000026        |
+|    14052    |             Too Long             |        0.0021934079999992306        |      Will throw math range error      |        0.028103309000000465       |
+|    14220    |             Too Long             |        0.0022716359999996882        |      Will throw math range error      |        0.028604082999999392       |
+|    14389    |             Too Long             |         0.002354742999999715        |      Will throw math range error      |        0.02913099600000013        |
+|    14559    |             Too Long             |         0.002364994999999759        |      Will throw math range error      |        0.029866100999999645       |
+|    14730    |             Too Long             |        0.0024030409999999947        |      Will throw math range error      |        0.030299857000000152       |
+|    14902    |             Too Long             |        0.0024591199999992597        |      Will throw math range error      |        0.03104598000000003        |
+|    15075    |             Too Long             |        0.0025083520000004356        |      Will throw math range error      |        0.03217449899999991        |
+|    15249    |             Too Long             |         0.002636383000000464        |      Will throw math range error      |        0.03227557200000053        |
+|    15424    |             Too Long             |         0.002632933000000115        |      Will throw math range error      |        0.033693322000000414       |
+|    15600    |             Too Long             |        0.0026404709999994225        |      Will throw math range error      |        0.03338307599999979        |
+|    15777    |             Too Long             |        0.0027359580000005934        |      Will throw math range error      |        0.03441496200000049        |
+|    15955    |             Too Long             |         0.002795693999999571        |      Will throw math range error      |        0.03477225600000011        |
+|    16134    |             Too Long             |        0.0028314460000000707        |      Will throw math range error      |        0.035491095999999445       |
+|    16314    |             Too Long             |         0.002912928999999842        |      Will throw math range error      |        0.036209124999999176       |
+|    16495    |             Too Long             |        0.0029878339999998005        |      Will throw math range error      |        0.03867271800000083        |
+|    16677    |             Too Long             |        0.0031461899999998266        |      Will throw math range error      |        0.03852016200000019        |
+|    16860    |             Too Long             |        0.0032368480000002364        |      Will throw math range error      |        0.03916389499999973        |
+|    17044    |             Too Long             |        0.0031926280000007523        |      Will throw math range error      |        0.04841644700000014        |
+|    17229    |             Too Long             |         0.006600329000000293        |      Will throw math range error      |        0.05215638800000022        |
+|    17415    |             Too Long             |        0.0035326619999995756        |      Will throw math range error      |        0.04076063399999974        |
+|    17602    |             Too Long             |        0.0033478769999994995        |      Will throw math range error      |        0.04103604300000008        |
+|    17790    |             Too Long             |        0.0034312700000000973        |      Will throw math range error      |        0.04301147400000005        |
+|    17979    |             Too Long             |        0.0035049850000001825        |      Will throw math range error      |        0.04352054599999988        |
+|    18169    |             Too Long             |         0.003538060999999537        |      Will throw math range error      |         0.0437749209999998        |
+|    18360    |             Too Long             |        0.0035918380000001804        |      Will throw math range error      |        0.04404226099999953        |
+|    18552    |             Too Long             |        0.0036191470000002113        |      Will throw math range error      |        0.04466517699999972        |
+|    18745    |             Too Long             |        0.0037107299999998844        |      Will throw math range error      |        0.04547660400000009        |
+|    18939    |             Too Long             |        0.0038502950000003366        |      Will throw math range error      |        0.04690770699999991        |
+|    19134    |             Too Long             |        0.0039268779999996895        |      Will throw math range error      |        0.049045088000000625       |
+|    19330    |             Too Long             |         0.003903750999999289        |      Will throw math range error      |        0.04801076599999998        |
+|    19527    |             Too Long             |         0.004034497000000137        |      Will throw math range error      |        0.04884804599999981        |
+|    19725    |             Too Long             |         0.004170757999999886        |      Will throw math range error      |        0.05038908400000075        |
+|    19924    |             Too Long             |         0.004148309999999711        |      Will throw math range error      |        0.050622458000000314       |
+|    20124    |             Too Long             |         0.004214623000000195        |      Will throw math range error      |        0.051852732999999596       |
+|    20325    |             Too Long             |         0.004299493000000432        |      Will throw math range error      |        0.05191325600000063        |
+|    20527    |             Too Long             |         0.004364574000000232        |      Will throw math range error      |        0.05301012499999924        |
+|    20730    |             Too Long             |         0.004699302000000571        |      Will throw math range error      |         0.0559720799999992        |
+|    20934    |             Too Long             |         0.005841500999999916        |      Will throw math range error      |        0.059636794000000215       |
+|    21139    |             Too Long             |         0.00469277899999998         |      Will throw math range error      |        0.05742994099999965        |
+|    21345    |             Too Long             |         0.005574399999999535        |      Will throw math range error      |        0.061990896000000184       |
+|    21552    |             Too Long             |         0.004827419999999805        |      Will throw math range error      |        0.05815635500000038        |
+|    21760    |             Too Long             |         0.004963205000000137        |      Will throw math range error      |         0.0604861449999996        |
+|    21969    |             Too Long             |         0.006316310999999963        |      Will throw math range error      |        0.05971230199999944        |
+|    22179    |             Too Long             |         0.00505466099999996         |      Will throw math range error      |        0.06107660600000031        |
+|    22390    |             Too Long             |         0.005062595000000059        |      Will throw math range error      |        0.06158770299999983        |
+|    22602    |             Too Long             |         0.005136395000000071        |      Will throw math range error      |        0.06441445300000037        |
+|    22815    |             Too Long             |         0.005272660000000151        |      Will throw math range error      |        0.06324171899999964        |
+|    23029    |             Too Long             |         0.005319269000000126        |      Will throw math range error      |        0.06494155599999996        |
+|    23244    |             Too Long             |         0.005440596999999769        |      Will throw math range error      |        0.06552495700000005        |
+|    23460    |             Too Long             |         0.005546594999999321        |      Will throw math range error      |        0.06661157600000056        |
+|    23677    |             Too Long             |         0.005607835000000172        |      Will throw math range error      |        0.06753515299999968        |
+|    23895    |             Too Long             |         0.005714907000000657        |      Will throw math range error      |        0.07611048099999973        |
+|    24114    |             Too Long             |         0.006220788000000255        |      Will throw math range error      |        0.07202496800000002        |
+|    24334    |             Too Long             |         0.005887185999999822        |      Will throw math range error      |        0.07299517399999988        |
+|    24555    |             Too Long             |         0.006250431999999861        |      Will throw math range error      |        0.07295250000000042        |
+|    24777    |             Too Long             |         0.006106704000000462        |      Will throw math range error      |        0.07305096900000052        |
+|    25000    |             Too Long             |         0.006234777999999608        |      Will throw math range error      |        0.07575444899999972        |
+|    25224    |             Too Long             |         0.00636937400000015         |      Will throw math range error      |        0.07611103600000035        |
+|    25449    |             Too Long             |        0.0063972369999998335        |      Will throw math range error      |        0.07748903299999998        |
+|    25675    |             Too Long             |        0.0065069170000002785        |      Will throw math range error      |         0.0781931509999998        |
+|    25902    |             Too Long             |         0.006695340999999466        |      Will throw math range error      |         0.0795970730000004        |
+|    26130    |             Too Long             |         0.006689993000000172        |      Will throw math range error      |         0.0803035749999994        |
+|    26359    |             Too Long             |         0.006763532999999988        |      Will throw math range error      |         0.0816666399999999        |
+|    26589    |             Too Long             |         0.006935568000000281        |      Will throw math range error      |        0.08585780800000009        |
+|    26820    |             Too Long             |         0.007315307000000715        |      Will throw math range error      |        0.08461011600000035        |
+|    27052    |             Too Long             |         0.007088056999999814        |      Will throw math range error      |        0.08493043200000017        |
+|    27285    |             Too Long             |         0.007148034000000081        |      Will throw math range error      |        0.08673766300000008        |
+|    27519    |             Too Long             |         0.007345358000000246        |      Will throw math range error      |        0.08758360299999968        |
+|    27754    |             Too Long             |         0.007426023999999032        |      Will throw math range error      |        0.08931290900000022        |
+|    27990    |             Too Long             |         0.007709768999999866        |      Will throw math range error      |        0.09078655100000077        |
+|    28227    |             Too Long             |         0.007685526000001275        |      Will throw math range error      |            0.091903297            |
+|    28465    |             Too Long             |         0.007783184000000887        |      Will throw math range error      |        0.09273418000000078        |
+|    28704    |             Too Long             |         0.007906822999999008        |      Will throw math range error      |        0.09482419700000122        |
+|    28944    |             Too Long             |         0.008507131000000001        |      Will throw math range error      |        0.09730061600000006        |
+|    29185    |             Too Long             |         0.008805947000000813        |      Will throw math range error      |        0.09924113400000145        |
+|    29427    |             Too Long             |         0.008187326999999911        |      Will throw math range error      |        0.10093678500000003        |
++-------------+----------------------------------+-------------------------------------+---------------------------------------+-----------------------------------+

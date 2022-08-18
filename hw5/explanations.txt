@@ -1,0 +1,19 @@
+Explanations for table:
+
+From the table we can clearly observe that tah bottom up search is the most efiicient, since it evolves linearly, while
+the naive and matrix approach evolve exponentially, and the closed form approapch will relatively soon throw a math range
+error, since the numbers it opperates with are too big and cannot perform operations with.
+
+
+Explanationsl for graph:
+
+From the figure plots.png, we can observe the same argument found in the table, which is that the bottom up search is
+the most efficient in time over large numbers. Of course, although the line for closed form cannot clearly be seen, we 
+can safely assume that it is a straight line very close to 0 seconds, since its complexity is O(1). However, as explained 
+earlier, this method is not efficient for large numbers since the operations become too heavy for the computer and will 
+also result in floating point errors, hence why it may show different values for the same n compared to the other 
+methods (point b) ).
+
+
+Side note: I have stopped the naive search and the closed form algorithms from opperating after some specific values,
+in order to get more extensive results for the other two methods and be able to compare them.
